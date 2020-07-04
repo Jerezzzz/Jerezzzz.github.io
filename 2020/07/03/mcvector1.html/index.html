@@ -21,8 +21,9 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/p1.png">
 <meta property="og:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/p2.png">
+<meta property="og:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/p3.png">
 <meta property="article:published_time" content="2020-07-03T04:14:01.000Z">
-<meta property="article:modified_time" content="2020-07-04T09:22:28.482Z">
+<meta property="article:modified_time" content="2020-07-04T09:36:32.948Z">
 <meta property="article:author" content="Jerez">
 <meta property="article:tag" content="Minecraft开发">
 <meta property="article:tag" content="数学应用">
@@ -30,7 +31,7 @@
 <meta name="twitter:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/p1.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="/css/style.css?v=1593854583850">-->
+  <!--<link rel="stylesheet" href="/css/style.css?v=1593855402460">-->
 <meta name="generator" content="Hexo 4.2.1"></head>
 
 <body class="mdui-drawer-body-left">
@@ -169,8 +170,8 @@
   
   <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     <a><i class="nexmoefont icon-calendar-fill"></i>2020年07月03日</a>
-    <a><i class="nexmoefont icon-areachart"></i>379 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+    <a><i class="nexmoefont icon-areachart"></i>532 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
 </div>
 
   <div class="nexmoe-post-right">
@@ -179,7 +180,7 @@
 
   <article>
     <h1 id="运用三角函数和向量的知识求出角度并运用在游戏中"><a href="#运用三角函数和向量的知识求出角度并运用在游戏中" class="headerlink" title="运用三角函数和向量的知识求出角度并运用在游戏中"></a>运用三角函数和向量的知识求出角度并运用在游戏中</h1><a id="more"></a>
-<p>在开发中运用到了判断角度的功能，由此想到向量有一个求角度的公式<br>以下公式均使用在平面直角坐标中，斜坐标不可使用</p>
+<h2 id="向量判断坐标法"><a href="#向量判断坐标法" class="headerlink" title="向量判断坐标法"></a>向量判断坐标法</h2><p>在开发中运用到了判断角度的功能，由此想到向量有一个求角度的公式<br>以下公式均使用在平面直角坐标中，斜坐标不可使用</p>
 <blockquote>
 <p> 原数量积公式为</p>
 <script type="math/tex; mode=display">\left |\vec{a}\right | \left |\vec{b}\right | cos<a,b> = \vec{a} \cdot \vec{b}</script><p> 变形后可得</p>
@@ -194,10 +195,12 @@
     double rad = (x1 * x2 + y1 * y2) / (Math.sqrt(x1 * x1 + y1 * y1) * Math.sqrt(x2 * x2 + y2 * y2));
     return Math.acos(rad);
 }
-</code></pre><p>但是经过我反复的测试，具体的值一直有问题，并不是正确的角度，一直在0.9左右变化<br>后面经过向量做差之后，与非常靠近0点的向量进行比较后变得正常</p>
-<p>具体效果<br><img data-sizes="auto" data-src="p1.png" alt="展示图" class="lazyload"></p>
-<p>游戏数值<br><img data-sizes="auto" data-src="p2.png" alt="展示图" class="lazyload"></p>
-<p>修改后</p>
+</code></pre><p>具体效果</p>
+<p><img data-sizes="auto" data-src="p1.png" alt="展示图" class="lazyload"></p>
+<p>游戏数值</p>
+<p><img data-sizes="auto" data-src="p2.png" alt="展示图" class="lazyload"></p>
+<p>但是经过我反复的测试，具体的值一直有问题，并不是正确的角度，一直在0.9左右变化<br>后面经过向量做差之后，与非常靠近0点的向量进行比较后变得正常</p>
+<p>修改后的代码</p>
 <pre><code>private double angle(Vector nv, Vector rv) {
     Vector move = new Vector(rv.getX() - nv.getX(), 0, rv.getZ() - nv.getZ());
     Vector zero = new Vector(0.1, 0, 0.1);
@@ -208,7 +211,12 @@
     double rad = (x1 * x2 + y1 * y2) / (Math.sqrt(x1 * x1 + y1 * y1) * Math.sqrt(x2 * x2 + y2 * y2)); // 余弦值
     return Math.acos(rad);
 }
-</code></pre>
+</code></pre><p>具体效果</p>
+<p><img data-sizes="auto" data-src="p3.png" alt="展示图" class="lazyload"></p>
+<p>这样就可以正确的判断角度了。</p>
+<h3 id="向量判断结论"><a href="#向量判断结论" class="headerlink" title="向量判断结论"></a>向量判断结论</h3><p><strong>通过向量来判断夹角是可行的一种办法，但是会有两个问题，一个是偏差的问题，一个是得出来的角度是在0到π之间的，只能得到二象限角度，也就是不准确，没办法大于180度（可能有，但是我现在不知道）</strong></p>
+<p>用向量的办法缺点有很多，而我的目的是为了好好利用上向量数量积的公式<del>（因为刚学到这</del></p>
+
   </article>
 
   <div class="nexmoe-post-meta nexmoe-rainbow">
@@ -260,7 +268,7 @@
     <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
 
 
-<script src="/js/app.js?v=1593854583855"></script>
+<script src="/js/app.js?v=1593855402471"></script>
   
 
 
