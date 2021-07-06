@@ -19,21 +19,21 @@
 <meta property="og:site_name" content="Jerez - 碎碎念啥的...">
 <meta property="og:description" content="运用三角函数和向量的知识求出角度并运用在游戏中">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/p1.png">
+<meta property="og:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/pa.png">
 <meta property="og:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/p2.png">
 <meta property="og:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/p3.png">
 <meta property="og:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/p4.png">
 <meta property="og:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/Loading.png">
 <meta property="article:published_time" content="2020-07-03T04:14:01.000Z">
-<meta property="article:modified_time" content="2021-07-06T10:46:04.517Z">
+<meta property="article:modified_time" content="2021-07-06T12:47:58.586Z">
 <meta property="article:author" content="Jerez">
 <meta property="article:tag" content="Minecraft开发">
 <meta property="article:tag" content="数学应用">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/p1.png">
+<meta name="twitter:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/pa.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="/css/style.css?v=1625575258534">-->
+  <!--<link rel="stylesheet" href="/css/style.css?v=1625575685447">-->
 <meta name="generator" content="Hexo 4.2.1"></head>
 
 <body class="mdui-drawer-body-left">
@@ -57,7 +57,7 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>5</div>
+        <div><span>文章</span>4</div>
         <div><span>标签</span>3</div>
         <div><span>分类</span>3</div>
     </div>
@@ -146,7 +146,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">文章归档</h3>
     <div class="nexmoe-widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li></ul>
     </div>
   </div>
 
@@ -196,7 +196,7 @@
     return Math.acos(rad);
 }
 </code></pre><p>具体效果</p>
-<p><img data-sizes="auto" data-src="p1.png" alt="展示图" class="lazyload"></p>
+<p><img data-sizes="auto" data-src="pa.png" alt="展示图" class="lazyload"></p>
 <p>游戏数值</p>
 <p><img data-sizes="auto" data-src="p2.png" alt="展示图" class="lazyload"></p>
 <p>但是经过我反复的测试，具体的值一直有问题，并不是正确的角度，一直在0.9左右变化<br>后面经过向量做差之后，与非常靠近0点的向量进行比较后变得正常</p>
@@ -280,13 +280,28 @@
     <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
 
 
-<script src="/js/app.js?v=1625575258536"></script>
+<script src="/js/app.js?v=1625575685451"></script>
   
 
 
 
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 
 </html>
