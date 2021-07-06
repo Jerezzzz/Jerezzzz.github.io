@@ -19,21 +19,21 @@
 <meta property="og:site_name" content="Jerez - 碎碎念啥的...">
 <meta property="og:description" content="运用三角函数和向量的知识求出角度并运用在游戏中">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/pa.png">
-<meta property="og:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/p2.png">
-<meta property="og:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/p3.png">
-<meta property="og:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/p4.png">
-<meta property="og:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/Loading.png">
+<meta property="og:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/Minecraft%E4%B8%AD%E5%A6%82%E4%BD%95%E7%94%A8%E5%90%91%E9%87%8F%E6%B1%82%E5%A4%B9%E8%A7%92/p1.png">
+<meta property="og:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/Minecraft%E4%B8%AD%E5%A6%82%E4%BD%95%E7%94%A8%E5%90%91%E9%87%8F%E6%B1%82%E5%A4%B9%E8%A7%92/p2.png">
+<meta property="og:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/Minecraft%E4%B8%AD%E5%A6%82%E4%BD%95%E7%94%A8%E5%90%91%E9%87%8F%E6%B1%82%E5%A4%B9%E8%A7%92/p3.png">
+<meta property="og:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/Minecraft%E4%B8%AD%E5%A6%82%E4%BD%95%E7%94%A8%E5%90%91%E9%87%8F%E6%B1%82%E5%A4%B9%E8%A7%92/p4.png">
+<meta property="og:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/Minecraft%E4%B8%AD%E5%A6%82%E4%BD%95%E7%94%A8%E5%90%91%E9%87%8F%E6%B1%82%E5%A4%B9%E8%A7%92/Loading.png">
 <meta property="article:published_time" content="2020-07-03T04:14:01.000Z">
-<meta property="article:modified_time" content="2021-07-06T12:47:58.586Z">
+<meta property="article:modified_time" content="2021-07-06T13:28:42.122Z">
 <meta property="article:author" content="Jerez">
 <meta property="article:tag" content="Minecraft开发">
 <meta property="article:tag" content="数学应用">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/pa.png">
+<meta name="twitter:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/Minecraft%E4%B8%AD%E5%A6%82%E4%BD%95%E7%94%A8%E5%90%91%E9%87%8F%E6%B1%82%E5%A4%B9%E8%A7%92/p1.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="/css/style.css?v=1625575685447">-->
+  <!--<link rel="stylesheet" href="/css/style.css?v=1625578126864">-->
 <meta name="generator" content="Hexo 4.2.1"></head>
 
 <body class="mdui-drawer-body-left">
@@ -196,9 +196,9 @@
     return Math.acos(rad);
 }
 </code></pre><p>具体效果</p>
-<p><img data-sizes="auto" data-src="pa.png" alt="展示图" class="lazyload"></p>
+<p><img data-sizes="auto" data-src="./Minecraft中如何用向量求夹角/p1.png" alt="展示图" class="lazyload"></p>
 <p>游戏数值</p>
-<p><img data-sizes="auto" data-src="p2.png" alt="展示图" class="lazyload"></p>
+<p><img data-sizes="auto" data-src="./Minecraft中如何用向量求夹角/p2.png" alt="展示图" class="lazyload"></p>
 <p>但是经过我反复的测试，具体的值一直有问题，并不是正确的角度，一直在0.9左右变化<br>后面经过向量做差之后，与非常靠近0点的向量进行比较后变得正常</p>
 <p>修改后的代码</p>
 <pre><code>private double angle(Vector nv, Vector rv) {
@@ -212,7 +212,7 @@
     return Math.acos(rad);
 }
 </code></pre><p>具体效果</p>
-<p><img data-sizes="auto" data-src="p3.png" alt="展示图" class="lazyload"></p>
+<p><img data-sizes="auto" data-src="./Minecraft中如何用向量求夹角/p3.png" alt="展示图" class="lazyload"></p>
 <p>这样就可以正确的判断角度了。</p>
 <h3 id="向量判断结论"><a href="#向量判断结论" class="headerlink" title="向量判断结论"></a>向量判断结论</h3><p><strong>通过向量来判断夹角是可行的一种办法，但是会有两个问题，一个是偏差的问题，一个是得出来的角度是在0到π之间的，只能得到二象限角度，也就是不准确，没办法大于180度（可能有，但是我现在不知道）</strong></p>
 <p>用向量的办法缺点有很多，而我的目的是为了好好利用上向量数量积的公式<del>（因为刚学到这</del></p>
@@ -224,9 +224,9 @@
 }
 </code></pre><p>通过这种方式判断起来就简单明了很多，而且我查询的资料都是使用这种方式进行判别方向的</p>
 <p>具体效果</p>
-<p><img data-sizes="auto" data-src="p4.png" alt="展示图" class="lazyload"></p>
+<p><img data-sizes="auto" data-src="./Minecraft中如何用向量求夹角/p4.png" alt="展示图" class="lazyload"></p>
 <p>这里可以看到右边的坐标数值是x=1,z=-1<br>可以用tan的公式计算一下为-1，也就是135度。<br>测试结果也没问题。</p>
-<p><img data-sizes="auto" data-src="Loading.png" alt="展示图" class="lazyload"></p>
+<p><img data-sizes="auto" data-src="./Minecraft中如何用向量求夹角/Loading.png" alt="展示图" class="lazyload"></p>
 <h3 id="总结？"><a href="#总结？" class="headerlink" title="总结？"></a>总结<del>？</del></h3><p>以上俩种方式有利有弊，向量的办法也有其他用途，还有投影的用处也会运用在许多地方<br>这里对上面两种方法进行总结</p>
 
   </article>
@@ -280,28 +280,13 @@
     <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
 
 
-<script src="/js/app.js?v=1625575685451"></script>
+<script src="/js/app.js?v=1625578126866"></script>
   
 
 
 
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 
 </html>
