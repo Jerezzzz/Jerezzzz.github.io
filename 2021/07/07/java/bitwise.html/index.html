@@ -4,7 +4,7 @@
 
 <head>
   
-  <title>分类：日记 - Jerez - 碎碎念啥的...</title>
+  <title>位运算 - Jerez - 碎碎念啥的...</title>
   <meta charset="UTF-8">
   <meta name="description" content="这个人很懒，什么都没留下（误">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -12,19 +12,21 @@
   
 
   <link rel="shortcut icon" href="/images/icons/icon_16.ico" type="image/png" />
-  <meta name="description" content="这个人很懒，什么都没留下（误">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jerez - 碎碎念啥的...">
-<meta property="og:url" content="http://blog.heyox.net/categories/%E6%97%A5%E8%AE%B0/index.html">
+  <meta name="description" content="位运算">
+<meta property="og:type" content="article">
+<meta property="og:title" content="位运算">
+<meta property="og:url" content="http://blog.heyox.net/2021/07/07/java/bitwise.html/index.html">
 <meta property="og:site_name" content="Jerez - 碎碎念啥的...">
-<meta property="og:description" content="这个人很懒，什么都没留下（误">
+<meta property="og:description" content="位运算">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-07T12:29:19.000Z">
+<meta property="article:modified_time" content="2021-07-07T13:54:42.570Z">
 <meta property="article:author" content="Jerez">
 <meta property="article:tag" content="博客">
 <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="/css/style.css?v=1625666102833">-->
+  <!--<link rel="stylesheet" href="/css/style.css?v=1625666102848">-->
 <meta name="generator" content="Hexo 4.2.1"></head>
 
 <body class="mdui-drawer-body-left">
@@ -160,70 +162,106 @@
   </div>
   <div id="nexmoe-content">
     <div class="nexmoe-primary">
-        
-<section class="nexmoe-archives">
+        <div class="nexmoe-post">
+  
+      <div class="nexmoe-post-cover" style="padding-bottom: 54%;"> 
+          <img data-src="https://cdn.jsdelivr.net/gh/Jerezzzz/Jerezzzz.github.io/images/cover/java.png" data-sizes="auto" alt="位运算" class="lazyload">
+          <h1>位运算</h1>
+      </div>
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2021年07月07日</a>
+    <a><i class="nexmoefont icon-areachart"></i>636 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
+</div>
 
-    <article>
-        
+  <div class="nexmoe-post-right">
+    
+  </div>
 
-        
-            <h2>2021</h2>
-            <ul>
-            
-                <li><span>07-07</span><a href="/2021/07/07/java/bitwise.html/" >位运算</a></li>
-            
-                <li><span>07-07</span><a href="/2021/07/07/diary/page1.html/" >日记-小感慨</a></li>
-            
-            </ul>
-        
-    </article>
+  <article>
+    <p><strong>位运算</strong></p>
+<a id="more"></a>
+
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>一直以来,对我来说位运算都是非常高深的东西<br>最近在补《JAVA编程思想》时想要透彻的学习好这门已经学习了很久的语言</p>
+<p>于是我选择不避开难理解的概念<br>但当我深入了解后发现，其实也就是很简单的加减乘除罢了</p>
+<h2 id="运算规则"><a href="#运算规则" class="headerlink" title="运算规则"></a>运算规则</h2><p>运算规则很简单</p>
+<p>这里指的双边意思为，两个进行比较的位运算</p>
+<p>&amp;  当双边为1时为1<br>|  当双边有一个为1时则为1<br>^  当双边相同时为0，不同时为1<br>~  取反,0变1,1变0<br>&lt;&lt; 左位移x位<br>&gt;&gt; 右位移x位</p>
+<blockquote>
+<p>参考资料<br><a href="https://www.runoob.com/w3cnote/bit-operation.html" target="_blank" rel="noopener">https://www.runoob.com/w3cnote/bit-operation.html</a></p>
+</blockquote>
+<h2 id="实际运用"><a href="#实际运用" class="headerlink" title="实际运用"></a>实际运用</h2><p>只看运算和概念还是很模糊<br>刚好我开发MOD时发现</p>
+<p>游戏内的字体是由一个4字节的int作为颜色的</p>
+<p><strong>部分代码</strong></p>
+<pre><code>this.red = (float)(color &gt;&gt; 16 &amp; 255) / 255.0F;
+this.blue = (float)(color &gt;&gt; 8 &amp; 255) / 255.0F;
+this.green = (float)(color &amp; 255) / 255.0F;
+this.alpha = (float)(color &gt;&gt; 24 &amp; 255) / 255.0F;
+setColor(this.red, this.blue, this.green, this.alpha);
+this.posX = x;
+this.posY = y;
+this.renderStringAtPos(text, dropShadow);
+</code></pre>
+<p>从这里可以看出<br>将四个字节分成了四个部分</p>
+<p>1字节有8个位，也就是 $2^8=256$ 位数</p>
+<p>所以前三个字节被拿来当作RGB三原色的数字 前三个颜色分别是G,B,R<br>怎么判断出来的呢？</p>
+<p>使用一个浅粉色,十六进制为#FFB6C1,十进制为16758465<br>二进制为111111111011011011000001</p>
+<blockquote>
+<p>比如第一个字节中<br>this.green = (float)(color &amp; 255) / 255.0F;<br>使用&amp;运算后<br>111111111011011011000001<br>000000000000000011111111<br>最后剩下<br>000000000000000011000001<br>也就是说，前面的部分就直接为0了<br>这时候转换成10进制就是193<br>为什么最后要用193/255呢？因为在这里需要的是0到1的一个浮点数</p>
+</blockquote>
+<p>第一个字节很好理解<br>后续右位移的字节呢？<br>其实右位移也很简单<br>右位移多少位就向左边填充多少个0<br>右边多出来的部分直接删除</p>
+<p>例如</p>
+<blockquote>
+<p>111111111011011011000001<br>&gt;&gt; 8<br>000000001111111110110110<br>后面的运算跟第一个字节雷同<br>最后算出一个0到1的浮点数</p>
+</blockquote>
+<h2 id="修改透明度"><a href="#修改透明度" class="headerlink" title="修改透明度"></a>修改透明度</h2><p>现在已经知道了运算规则,如何修改透明度<br>透明度位于24个字节之后<br>也就是说<br>我先填写好透明度的数值,然后向左位移24位最后相加即可</p>
+<p>也就是</p>
+<pre><code>    int color = (0xfff0f5 | (alpha &lt;&lt; 24));
+</code></pre>
+<p>到此大功告成!<br>位运算拿下</p>
+
+  </article>
+
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
+    
+    
+</div>
+
+  <div class="nexmoe-post-footer">
+    
+      
+  <div class="nexmoe-post-copyright">
+    <strong>本文作者：</strong>Jerez<br>
+    <strong>本文链接：</strong><a href="http://blog.heyox.net/2021/07/07/java/bitwise.html/" title="http:&#x2F;&#x2F;blog.heyox.net&#x2F;2021&#x2F;07&#x2F;07&#x2F;java&#x2F;bitwise.html&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;blog.heyox.net&#x2F;2021&#x2F;07&#x2F;07&#x2F;java&#x2F;bitwise.html&#x2F;</a><br>
+    
+      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+    
+  </div>
+
+
+    
+    <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '89b5ed6ac17307f254a8',
+        clientSecret: '5c33d27fe1c080120ed6fca0d15b238b7e89b615',
+        id: window.location.pathname,
+        repo: 'Jerezzzz.github.io',
+        owner: 'jerezzzz',
+        admin: 'jerezzzz'
+    })
+    gitalk.render('gitalk')
+</script>
 </section>
-
-<style>
-.nexmoe-archives article > *:first-child {
-    margin-top: 0;
-}
-.nexmoe-archives article > *:last-child {
-    margin-bottom: 0;
-}
-.nexmoe-archives ul {
-    list-style: none;
-    padding-left: 0!important;
-}
-.nexmoe-archives li {
-    position: relative;
-    padding: 10px 0;
-}
-.nexmoe-archives li::before {
-    content: "";
-    width: 14px;
-    height: 14px;
-    background: #ff4e6a;
-    display: inline-block;
-    vertical-align: middle;
-    margin-top: -2px;
-    margin-right: 11px;
-    border-radius: 100%;
-    border: 3px solid #fff;
-    z-index: 100;
-    position: relative;
-}
-.nexmoe-archives li::after {
-    content: "";
-    height: 100%;
-    width: 2px;
-    background: rgba(255, 78, 106, 0.2);
-    position: absolute;
-    left: 6px;
-    top: 20px;
-}
-.nexmoe-archives li:last-child:after {
-    display: none;
-}
-.nexmoe-archives span {
-    margin-right: 15px;
-}
-</style>
+  </div>
+</div>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
@@ -233,7 +271,7 @@
     <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
 
 
-<script src="/js/app.js?v=1625666102835"></script>
+<script src="/js/app.js?v=1625666102850"></script>
   
 
 
