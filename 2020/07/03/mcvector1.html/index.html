@@ -22,10 +22,9 @@
 <meta property="og:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/p1.png">
 <meta property="og:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/p2.png">
 <meta property="og:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/p3.png">
-<meta property="og:image" content="http://blog.heyox.net/assets/p3.png">
 <meta property="og:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/p4.png">
 <meta property="article:published_time" content="2020-07-03T04:14:01.000Z">
-<meta property="article:modified_time" content="2021-07-06T14:08:47.729Z">
+<meta property="article:modified_time" content="2021-07-07T03:34:03.152Z">
 <meta property="article:author" content="Jerez">
 <meta property="article:tag" content="Minecraft开发">
 <meta property="article:tag" content="数学应用">
@@ -33,7 +32,7 @@
 <meta name="twitter:image" content="http://blog.heyox.net/2020/07/03/mcvector1.html/p1.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="/css/style.css?v=1625580532802">-->
+  <!--<link rel="stylesheet" href="/css/style.css?v=1625650166040">-->
 <meta name="generator" content="Hexo 4.2.1"></head>
 
 <body class="mdui-drawer-body-left">
@@ -57,7 +56,7 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>4</div>
+        <div><span>文章</span>5</div>
         <div><span>标签</span>3</div>
         <div><span>分类</span>3</div>
     </div>
@@ -107,7 +106,7 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/Minecraft开发/">Minecraft开发</a>
-          <span class="category-list-count">1</span>
+          <span class="category-list-count">2</span>
         </li>
 
         
@@ -136,7 +135,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">标签云</h3>
     <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
-      <a href="/tags/Minecraft%E5%BC%80%E5%8F%91/" style="font-size: 10px;">Minecraft开发</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 20px;">博客</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BA%94%E7%94%A8/" style="font-size: 10px;">数学应用</a>
+      <a href="/tags/Minecraft%E5%BC%80%E5%8F%91/" style="font-size: 10px;">Minecraft开发</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BA%94%E7%94%A8/" style="font-size: 10px;">数学应用</a>
     </div>
     
   </div>
@@ -146,7 +145,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">文章归档</h3>
     <div class="nexmoe-widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li></ul>
     </div>
   </div>
 
@@ -172,7 +171,7 @@
   
   <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     <a><i class="nexmoefont icon-calendar-fill"></i>2020年07月03日</a>
-    <a><i class="nexmoefont icon-areachart"></i>784 字</a>
+    <a><i class="nexmoefont icon-areachart"></i>794 字</a>
     <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
 </div>
 
@@ -182,11 +181,11 @@
 
   <article>
     <h1 id="运用三角函数和向量的知识求出角度并运用在游戏中"><a href="#运用三角函数和向量的知识求出角度并运用在游戏中" class="headerlink" title="运用三角函数和向量的知识求出角度并运用在游戏中"></a>运用三角函数和向量的知识求出角度并运用在游戏中</h1><a id="more"></a>
+
 <h2 id="向量判断坐标法"><a href="#向量判断坐标法" class="headerlink" title="向量判断坐标法"></a>向量判断坐标法</h2><p>在开发中运用到了判断角度的功能，由此想到向量有一个求角度的公式<br>以下公式均使用在平面直角坐标中，斜坐标不可使用</p>
-<p>  原数量积公式为</p>
-<script type="math/tex; mode=display">\left |\vec{a}\right | \left |\vec{b}\right | cos<a,b> = \vec{a} \cdot \vec{b}</script><p>  变形后可得</p>
-<script type="math/tex; mode=display">cos<a,b>=\frac{\vec{a}\cdot \vec{b}}{\left | \vec{a} \right |\left | \vec{b} \right |}</script><p>  由于在平面直角坐标系下，基底垂直，cos值为0所以公式可以变形为</p>
-<script type="math/tex; mode=display">cos<a,b>=\frac{x_{1}*x_{2}+y_{1}*y_{2}}{\sqrt{(x_{1})^2+(y_{1})^2}*\sqrt{(x_{2})^2+(y_{2})^2}}</script><p>得到坐标之后就可以代入公式到游戏进行测试了</p>
+<p>  原数量积公式为<br>  $$\left |\vec{a}\right | \left |\vec{b}\right | cos&lt;a,b&gt; = \vec{a} \cdot \vec{b}$$<br>  变形后可得<br>  $$cos&lt;a,b&gt;=\frac{\vec{a}\cdot \vec{b}}{\left | \vec{a} \right |\left | \vec{b} \right |}$$</p>
+<p>  由于在平面直角坐标系下，基底垂直，cos值为0所以公式可以变形为<br>  $$cos&lt;a,b&gt;=\frac{x_{1}*x_{2}+y_{1}*y_{2}}{\sqrt{(x_{1})^2+(y_{1})^2}*\sqrt{(x_{2})^2+(y_{2})^2}}$$</p>
+<p>得到坐标之后就可以代入公式到游戏进行测试了</p>
 <pre><code>private double angle(Vector nv, Vector rv) {
     double x1 = nv.getX();
     double y1 = nv.getZ();
@@ -195,10 +194,11 @@
     double rad = (x1 * x2 + y1 * y2) / (Math.sqrt(x1 * x1 + y1 * y1) * Math.sqrt(x2 * x2 + y2 * y2));
     return Math.acos(rad);
 }
-</code></pre><p>具体效果</p>
-<p><img data-sizes="auto" data-src="p1.png" alt="展示图" class="lazyload"></p>
+</code></pre>
+<p>具体效果</p>
+<p><img data-sizes="auto" data-src="/2020/07/03/mcvector1.html/p1.png" alt="展示图" class="lazyload"></p>
 <p>游戏数值</p>
-<p><img data-sizes="auto" data-src="p2.png" alt="展示图" class="lazyload"></p>
+<p><img data-sizes="auto" data-src="/2020/07/03/mcvector1.html/p2.png" alt="展示图" class="lazyload"></p>
 <p>但是经过我反复的测试，具体的值一直有问题，并不是正确的角度，一直在0.9左右变化<br>后面经过向量做差之后，与非常靠近0点的向量进行比较后变得正常</p>
 <p>修改后的代码</p>
 <pre><code>private double angle(Vector nv, Vector rv) {
@@ -211,20 +211,22 @@
     double rad = (x1 * x2 + y1 * y2) / (Math.sqrt(x1 * x1 + y1 * y1) * Math.sqrt(x2 * x2 + y2 * y2)); // 余弦值
     return Math.acos(rad);
 }
-</code></pre><p>具体效果</p>
-<p><img data-sizes="auto" data-src="p3.png" alt="展示图" class="lazyload"></p>
+</code></pre>
+<p>具体效果</p>
+<p><img data-sizes="auto" data-src="/2020/07/03/mcvector1.html/p3.png" alt="展示图" class="lazyload"></p>
 <p>这样就可以正确的判断角度了。</p>
 <h3 id="向量判断结论"><a href="#向量判断结论" class="headerlink" title="向量判断结论"></a>向量判断结论</h3><p><strong>通过向量来判断夹角是可行的一种办法，但是会有两个问题，一个是偏差的问题，一个是得出来的角度是在0到π之间的，只能得到二象限角度，也就是不准确，没办法大于180度（可能有，但是我现在不知道）</strong></p>
 <p>用向量的办法缺点有很多，而我的目的是为了好好利用上向量数量积的公式<del>（因为刚学到这</del></p>
-<p><img data-sizes="auto" data-src="/assets/p3.png" alt="p3" class="lazyload"><br>bbbbbbbb</p>
 <h2 id="通过tan来判断角度"><a href="#通过tan来判断角度" class="headerlink" title="通过tan来判断角度"></a>通过tan来判断角度</h2><p>在我查询了一些资料后，发现带伙都使用atan2函数进行判断角度<br>这种办法就很好了，简洁明了方便。</p>
 <pre><code>private double angle(Vector nv, Vector rv) {
     double rad = Math.atan2((nv.getZ() - rv.getZ()), (nv.getX() - rv.getX()));
     // 这里当rad值是负数的时候，根据图像可知是另外半边，所以用360度一减就可以了
     return rad &gt; 0 ? Math.toDegrees(rad) : 360 + Math.toDegrees(rad);
 }
-</code></pre><p>通过这种方式判断起来就简单明了很多，而且我查询的资料都是使用这种方式进行判别方向的</p>
-<p>具体效果<br>testaaaa<br><img data-sizes="auto" data-src="p4.png" alt="展示图" class="lazyload"></p>
+</code></pre>
+<p>通过这种方式判断起来就简单明了很多，而且我查询的资料都是使用这种方式进行判别方向的</p>
+<p>具体效果</p>
+<p><img data-sizes="auto" data-src="/2020/07/03/mcvector1.html/p4.png" alt="展示图" class="lazyload"></p>
 <p>这里可以看到右边的坐标数值是x=1,z=-1<br>可以用tan的公式计算一下为-1，也就是135度。<br>测试结果也没问题。</p>
 <h3 id="总结？"><a href="#总结？" class="headerlink" title="总结？"></a>总结<del>？</del></h3><p>以上俩种方式有利有弊，向量的办法也有其他用途，还有投影的用处也会运用在许多地方<br>这里对上面两种方法进行总结</p>
 
@@ -279,7 +281,7 @@
     <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
 
 
-<script src="/js/app.js?v=1625580532806"></script>
+<script src="/js/app.js?v=1625650166044"></script>
   
 
 
